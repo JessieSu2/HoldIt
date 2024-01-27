@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FoodSpawner : MonoBehaviour
 {
@@ -13,6 +14,10 @@ public class FoodSpawner : MonoBehaviour
     public float foodSpeed;
     public int fartFoodPoints;
     public int diarrheaFoodPoints;
+    [SerializeField] RectTransform leftPoint;
+    [SerializeField] RectTransform rightPoint;
+    [SerializeField] Canvas canvas;
+    [SerializeField] Camera camera;
     #endregion
 
     #region Private Variables
@@ -61,7 +66,8 @@ public class FoodSpawner : MonoBehaviour
 
     public void SpawnFood()
     {
-        foodSpawnPos = new Vector3(Random.Range(0, Screen.width), Screen.height, 0f);
+
+        foodSpawnPos = new Vector3(Random.Range(leftPoint.position.x, rightPoint.position.x), Screen.height, 0f);
         foodSpawnPos = Camera.main.ScreenToWorldPoint(foodSpawnPos);
         foodSpawnPos = new Vector3(foodSpawnPos.x, foodSpawnPos.y, 0f);
 
