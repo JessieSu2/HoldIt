@@ -154,7 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToGenerateFood: 0
   currentTime: 0
-  startSpawning: 0
+  startSpawning: 1
   foodPrefab: {fileID: 2515887760739645491, guid: e7743a33220849a43a99195fb9843639, type: 3}
   diarrheaFoodRatio: 0
   foodSpeed: 0
@@ -298,6 +298,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentFartScore: 0
   currentDiarrheaScore: 0
+  currentLevel: 0
 --- !u!4 &1165852550
 Transform:
   m_ObjectHideFlags: 0

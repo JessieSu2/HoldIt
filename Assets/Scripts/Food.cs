@@ -21,6 +21,7 @@ public class Food : MonoBehaviour
     #region Private Variables
     private Rigidbody2D rb;
     private SpriteRenderer sr;
+    private float existingTime;
     #endregion
 
     // Start is called before the first frame update
@@ -28,12 +29,22 @@ public class Food : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
+
+        existingTime = 0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        // Delete the food if existing too long
+        if (existingTime < 4f)
+        {
+            existingTime += Time.deltaTime;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
 
 
     }

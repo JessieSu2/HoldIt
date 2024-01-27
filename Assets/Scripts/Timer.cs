@@ -23,7 +23,7 @@ public class Timer : MonoBehaviour
         {
             timerEnded();
         }
-        print(targetTime);
+        //print(targetTime);
     }
 
     void timerEnded()
