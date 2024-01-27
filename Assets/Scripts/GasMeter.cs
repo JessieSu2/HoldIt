@@ -8,13 +8,13 @@ public class GasMeter : MonoBehaviour
 
     public void setGas(int gas)
     {
-        slider.value = gas;
+        slider.value = gas/100f;
     }
 
-    public void setMaxGas(int gas) 
+    /*public void setMaxGas(int gas) 
     {
         slider.maxValue= gas;
         slider.value = gas;
-    }
+    }*/
 
 }

@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         currentGas = maxGas;
-        gasMeter.setMaxGas(maxGas);
+        //gasMeter.setMaxGas(maxGas);
     }
 
     private void Update()

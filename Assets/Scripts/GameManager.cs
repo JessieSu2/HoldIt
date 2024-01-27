@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public int currentDiarrheaScore;
     public int currentLevel;
     [SerializeField] GameObject startLevelButton;
+    [SerializeField] TextMeshProUGUI levelText;
     public static GameManager Instance { get; private set; }
     #endregion
 
@@ -46,6 +47,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        FindObjectOfType<GasMeter>().setGas(currentFartScore);
+        FindObjectOfType<DiarrheaMeter>().setDiarrhea(currentDiarrheaScore);
+        levelText.text = "Level: " + currentLevel.ToString();
+
         if (currentFartScore >= 100 && currentDiarrheaScore < 100)
         {
             FinishLevel();
@@ -73,6 +78,15 @@ public class GameManager : MonoBehaviour
         startLevelButton.SetActive(true);
     }
 
+    void DestroyAllFood()
+    {
+        Food[] foods = FindObjectsOfType<Food>();
+        foreach (Food f in foods)
+        {
+            Destroy(f.gameObject);
+        }
+    }
+
     public void FinishLevel()
     {
         currentFartScore = 0;
@@ -80,6 +94,9 @@ public class GameManager : MonoBehaviour
         currentLevel++;
         spawner.startSpawning = false;
         spawner.foodSpeed += 0.1f;
+        FindObjectOfType<GasMeter>().setGas(0);
+        FindObjectOfType<DiarrheaMeter>().setDiarrhea(0);
+        DestroyAllFood();
     }
 
     public void FailLevel()
@@ -89,5 +106,8 @@ public class GameManager : MonoBehaviour
         currentLevel = 1;
         spawner.startSpawning = false;
         spawner.foodSpeed = 0.2f;
+        FindObjectOfType<GasMeter>().setGas(0);
+        FindObjectOfType<DiarrheaMeter>().setDiarrhea(0);
+        DestroyAllFood();
     }
 }
