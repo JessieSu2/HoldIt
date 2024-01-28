@@ -41,9 +41,10 @@ public class ChangeStoryPage : MonoBehaviour
     }
     public void GoBack()
     {
-        SoundManager.Instance.PlaySound(SoundManager.SoundEffects.ClickSound);
+        
         if (pageNum != 0)
         {
+            SoundManager.Instance.PlaySound(SoundManager.SoundEffects.ClickSound);
             pageNum--;
             image.sprite = images[pageNum];
         }

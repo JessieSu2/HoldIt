@@ -20,13 +20,19 @@ public class MenuButtons : MonoBehaviour
     public void RestartGame()
     {
         SoundManager.Instance.PlaySound(SoundManager.SoundEffects.ClickSound);
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
     }
 
     public void GoToCreditScene()
     {
         SoundManager.Instance.PlaySound(SoundManager.SoundEffects.ClickSound);
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(5);
+    }
+
+    public void GoToMainScreen()
+    {
+        SoundManager.Instance.PlaySound(SoundManager.SoundEffects.ClickSound);
+        SceneManager.LoadScene(0);
     }
 
 }
