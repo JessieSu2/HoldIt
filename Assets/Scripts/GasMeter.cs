@@ -6,12 +6,12 @@ public class GasMeter : MonoBehaviour
 {
     public Slider slider;
 
-    public void setGas(int gas)
+    public void SetGas(int gas)
     {
         slider.value = gas;
     }
 
-    public void setMaxGas(int gas) 
+    public void SetMaxGas(int gas) 
     {
         slider.maxValue= gas;
         slider.value = gas;
