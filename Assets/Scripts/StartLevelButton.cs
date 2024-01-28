@@ -7,7 +7,7 @@ public class StartLevelButton : MonoBehaviour
     
     public void StartLevel()
     {
-        //SoundManager.Instance.PlaySound(SoundManager.SoundEffects.ClickSound);
+        SoundManager.Instance.PlaySound(SoundManager.SoundEffects.ClickSound);
         FindObjectOfType<FoodSpawner>().startSpawning = true;
         gameObject.SetActive(false);
         GameManager.Instance.levelCompleteText.SetActive(false);

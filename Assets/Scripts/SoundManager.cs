@@ -18,7 +18,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] AudioClip ewwSound;
     [SerializeField] AudioClip bulpSound;
     [SerializeField] AudioClip fartSound;
-    [SerializeField] AudioClip poopSound;
+    [SerializeField] AudioClip fartSound2;
     [SerializeField] AudioClip clickSound;
     [SerializeField] AudioClip levelCompleteSound;
     [SerializeField] AudioClip failLevelSound;
@@ -36,7 +36,7 @@ public class SoundManager : MonoBehaviour
         EwwSound,
         BulpSound,
         FartSound,
-        PoopSound,
+        FartSound2,
         ClickSound,
         LevelCompleteSound,
         FailLevelSound,
@@ -123,8 +123,8 @@ public class SoundManager : MonoBehaviour
                 return bulpSound;
             case SoundEffects.FartSound:
                 return fartSound;
-            case SoundEffects.PoopSound:
-                return poopSound;
+            case SoundEffects.FartSound2:
+                return fartSound2;
             case SoundEffects.LevelCompleteSound:
                 return levelCompleteSound;
             case SoundEffects.FailLevelSound:

@@ -1654,7 +1654,7 @@ MonoBehaviour:
   ewwSound: {fileID: 8300000, guid: fc7edda9d093caa48a1556d8a4326829, type: 3}
   bulpSound: {fileID: 8300000, guid: e8c525756b1c81949ab2589c7c5a43b7, type: 3}
   fartSound: {fileID: 8300000, guid: 8a8bc3cef8442ae4cbf370dab5d4ccf0, type: 3}
-  poopSound: {fileID: 0}
+  fartSound2: {fileID: 8300000, guid: 8ff0d61ffb685764c9d99bbd1e60bee2, type: 3}
   clickSound: {fileID: 8300000, guid: 22332fddfe194e2488ec60dc54d92543, type: 3}
   levelCompleteSound: {fileID: 8300000, guid: 94678fca90b3dc142a774cfc954c5529, type: 3}
   failLevelSound: {fileID: 8300000, guid: 7d07900346890964986a0100b65d1219, type: 3}

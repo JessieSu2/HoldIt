@@ -20,7 +20,7 @@ public class PauseMenu : MonoBehaviour
                 Pause();
             }
         }
-        print(GameIsPaused);
+        //print(GameIsPaused);
     }
     public void Resume()
     {
