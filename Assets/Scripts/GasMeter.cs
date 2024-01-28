@@ -10,10 +10,7 @@ public class GasMeter : MonoBehaviour
     {
         slider.value = gas/100f;
     }
-<<<<<<< HEAD
-=======
 
->>>>>>> 704c32be8ffbbac6d093948a6d6a093b61d9c649
     public void SetMaxGas(int gas) 
     {
         slider.maxValue= gas;
