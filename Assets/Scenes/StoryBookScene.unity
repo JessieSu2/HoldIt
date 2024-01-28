@@ -867,7 +867,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f118736b5c08eb64fb91e9ee40f2b2fc, type: 3}
   - {fileID: 21300000, guid: 0752cdf19eb54b146b41690fbc4d9cba, type: 3}
   - {fileID: 21300000, guid: fc7e692864936c543a1377635027224f, type: 3}
-  maxNumImages: 5
+  maxNumImages: 6
   image: {fileID: 119197617}
 --- !u!1 &1197431281
 GameObject:
