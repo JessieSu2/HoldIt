@@ -17,7 +17,7 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!FindObjectOfType<FoodSpawner>().startSpawning) return;
+        if (FindObjectOfType<FoodSpawner>()?.startSpawning == false) return;
 
         targetTime -= Time.deltaTime;
         text.text = targetTime.ToString("F2");

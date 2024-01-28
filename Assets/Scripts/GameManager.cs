@@ -97,6 +97,7 @@ public class GameManager : MonoBehaviour
         FindObjectOfType<Timer>().targetTime = 60f;
         spawner.startSpawning = false;
         spawner.foodSpeed += 0.5f;
+        FindObjectOfType<PlayerMovement>().speed *= 1.2f;
         float tempTime = spawner.timeToGenerateFood - 0.2f;
         spawner.timeToGenerateFood = Mathf.Max(tempTime, 0.2f);
         FindObjectOfType<GasMeter>().setGas(0);

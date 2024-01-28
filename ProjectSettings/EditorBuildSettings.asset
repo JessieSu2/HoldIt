@@ -11,9 +11,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/StoryScreen.unity
     guid: 515c6736fe13dee40a29327b6d522fcc
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Game.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/FoodDrop.unity
+    guid: e6fd76f331059f5438bf098ddf762d93
   - enabled: 1
     path: Assets/Scenes/EndScreen.unity
     guid: f57e4423771f7d447a8549206a3b422f
