@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        FindObjectOfType<GasMeter>().setGas(currentFartScore);
+        FindObjectOfType<GasMeter>().SetGas(currentFartScore);
         FindObjectOfType<DiarrheaMeter>().setDiarrhea(currentDiarrheaScore);
         levelText.text = "Level: " + currentLevel.ToString();
 
@@ -100,7 +100,7 @@ public class GameManager : MonoBehaviour
         FindObjectOfType<PlayerMovement>().speed *= 1.2f;
         float tempTime = spawner.timeToGenerateFood - 0.2f;
         spawner.timeToGenerateFood = Mathf.Max(tempTime, 0.2f);
-        FindObjectOfType<GasMeter>().setGas(0);
+        FindObjectOfType<GasMeter>().SetGas(0);
         FindObjectOfType<DiarrheaMeter>().setDiarrhea(0);
         DestroyAllFood();
         startLevelButton.SetActive(true);
@@ -118,7 +118,7 @@ public class GameManager : MonoBehaviour
         spawner.startSpawning = false;
         spawner.foodSpeed = 0.2f;
         spawner.timeToGenerateFood = 2f;
-        FindObjectOfType<GasMeter>().setGas(0);
+        FindObjectOfType<GasMeter>().SetGas(0);
         FindObjectOfType<DiarrheaMeter>().setDiarrhea(0);
         DestroyAllFood();
         startLevelButton.SetActive(true);
