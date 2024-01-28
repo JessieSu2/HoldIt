@@ -110,6 +110,7 @@ public class Food : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            collision.gameObject.GetComponent<Animator>().SetTrigger("eat");
             if (isFartFood)
             {
                 GameManager.Instance.AddFartPoints(fartPoints);

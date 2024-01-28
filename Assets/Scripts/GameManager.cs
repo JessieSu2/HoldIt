@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,6 +10,10 @@ public class GameManager : MonoBehaviour
     public int currentFartScore;
     public int currentDiarrheaScore;
     public int currentLevel;
+    [SerializeField] GameObject startLevelButton;
+    [SerializeField] TextMeshProUGUI levelText;
+    public GameObject levelCompleteText;
+    public GameObject levelFailedText;
     public static GameManager Instance { get; private set; }
     #endregion
 
@@ -27,7 +33,7 @@ public class GameManager : MonoBehaviour
             Instance = this;
         }
 
-        spawner = GameObject.FindObjectOfType<FoodSpawner>();
+        spawner = FindObjectOfType<FoodSpawner>();
 
         currentFartScore = 0;
         currentDiarrheaScore = 0;
@@ -37,18 +43,22 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartLevel();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (currentFartScore >= 100 && currentDiarrheaScore < 100)
+        FindObjectOfType<GasMeter>().setGas(currentFartScore);
+        FindObjectOfType<DiarrheaMeter>().setDiarrhea(currentDiarrheaScore);
+        levelText.text = "Level: " + currentLevel.ToString();
+
+        if (currentFartScore >= 100 && currentDiarrheaScore < 100 && FindObjectOfType<Timer>().targetTime > 0f)
         {
             FinishLevel();
         }
 
-        if (currentDiarrheaScore >= 100)
+        if (currentDiarrheaScore >= 100 || FindObjectOfType<Timer>().targetTime <= 0f)
         {
             FailLevel();
         }
@@ -67,7 +77,16 @@ public class GameManager : MonoBehaviour
 
     public void StartLevel()
     {
-        spawner.startSpawning = true;
+        startLevelButton.SetActive(true);
+    }
+
+    void DestroyAllFood()
+    {
+        Food[] foods = FindObjectsOfType<Food>();
+        foreach (Food f in foods)
+        {
+            Destroy(f.gameObject);
+        }
     }
 
     public void FinishLevel()
@@ -75,8 +94,19 @@ public class GameManager : MonoBehaviour
         currentFartScore = 0;
         currentDiarrheaScore = 0;
         currentLevel++;
+        FindObjectOfType<Timer>().targetTime = 60f;
         spawner.startSpawning = false;
-        spawner.foodSpeed += 0.1f;
+        spawner.foodSpeed += 0.5f;
+        FindObjectOfType<PlayerMovement>().speed *= 1.2f;
+        float tempTime = spawner.timeToGenerateFood - 0.2f;
+        spawner.timeToGenerateFood = Mathf.Max(tempTime, 0.2f);
+        FindObjectOfType<GasMeter>().setGas(0);
+        FindObjectOfType<DiarrheaMeter>().setDiarrhea(0);
+        DestroyAllFood();
+        startLevelButton.SetActive(true);
+        levelCompleteText.SetActive(true);
+        FindObjectOfType<PlayerMovement>().gameObject.GetComponent<Animator>().SetBool("fart", true);
+
     }
 
     public void FailLevel()
@@ -84,7 +114,14 @@ public class GameManager : MonoBehaviour
         currentFartScore = 0;
         currentDiarrheaScore = 0;
         currentLevel = 1;
+        FindObjectOfType<Timer>().targetTime = 60f;
         spawner.startSpawning = false;
         spawner.foodSpeed = 0.2f;
+        spawner.timeToGenerateFood = 2f;
+        FindObjectOfType<GasMeter>().setGas(0);
+        FindObjectOfType<DiarrheaMeter>().setDiarrhea(0);
+        DestroyAllFood();
+        startLevelButton.SetActive(true);
+        levelFailedText.SetActive(true);
     }
 }
