@@ -17,6 +17,7 @@ public class ChangeStoryPage : MonoBehaviour
     }
     public void FlipPage()
     {
+        SoundManager.Instance.PlaySound(SoundManager.SoundEffects.ClickSound);
         pageNum++;
         if (pageNum == maxNumImages)
         {
@@ -24,6 +25,14 @@ public class ChangeStoryPage : MonoBehaviour
         }
         else
         { 
+            if (pageNum == 1)
+            {
+                SoundManager.Instance.PlaySound(SoundManager.SoundEffects.TummyGrumbleSound);
+            }
+            else if (pageNum == 2)
+            {
+                SoundManager.Instance.PlaySound(SoundManager.SoundEffects.FartSound);
+            }
             image.sprite = images[pageNum];
         }
         
@@ -32,6 +41,7 @@ public class ChangeStoryPage : MonoBehaviour
     }
     public void GoBack()
     {
+        SoundManager.Instance.PlaySound(SoundManager.SoundEffects.ClickSound);
         if (pageNum != 0)
         {
             pageNum--;

@@ -44,3 +44,6 @@ TagManager:
   - name: Character
     uniqueID: 3567268021
     locked: 0
+  - name: Stage
+    uniqueID: 339191795
+    locked: 0
