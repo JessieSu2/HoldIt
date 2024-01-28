@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        FindObjectOfType<GasMeter>().setGas(currentFartScore);
+        FindObjectOfType<GasMeter>().SetGas(currentFartScore);
         FindObjectOfType<DiarrheaMeter>().setDiarrhea(currentDiarrheaScore);
         levelText.text = "Level: " + currentLevel.ToString();
 
