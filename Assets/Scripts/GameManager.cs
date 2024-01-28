@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
             Instance = this;
         }
 
-        spawner = GameObject.FindObjectOfType<FoodSpawner>();
+        spawner = FindObjectOfType<FoodSpawner>();
 
         currentFartScore = 0;
         currentDiarrheaScore = 0;
@@ -105,6 +105,8 @@ public class GameManager : MonoBehaviour
         DestroyAllFood();
         startLevelButton.SetActive(true);
         levelCompleteText.SetActive(true);
+        FindObjectOfType<PlayerMovement>().gameObject.GetComponent<Animator>().SetBool("fart", true);
+
     }
 
     public void FailLevel()
