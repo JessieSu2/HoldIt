@@ -17,12 +17,18 @@ public class ChangeStoryPage : MonoBehaviour
     }
     public void FlipPage()
     {
-        if (pageNum == maxNumImages -1)
-        { 
+        pageNum++;
+        if (pageNum == maxNumImages)
+        {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
-        pageNum++;
-        image.sprite = images[pageNum];
+        else
+        { 
+            image.sprite = images[pageNum];
+        }
+        
+        
+
     }
     public void GoBack()
     {
