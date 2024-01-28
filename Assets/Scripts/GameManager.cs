@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public int currentLevel;
     [SerializeField] GameObject startLevelButton;
     [SerializeField] TextMeshProUGUI levelText;
+    public GameObject levelCompleteText;
+    public GameObject levelFailedText;
     public static GameManager Instance { get; private set; }
     #endregion
 
@@ -51,12 +53,12 @@ public class GameManager : MonoBehaviour
         FindObjectOfType<DiarrheaMeter>().setDiarrhea(currentDiarrheaScore);
         levelText.text = "Level: " + currentLevel.ToString();
 
-        if (currentFartScore >= 100 && currentDiarrheaScore < 100)
+        if (currentFartScore >= 100 && currentDiarrheaScore < 100 && FindObjectOfType<Timer>().targetTime > 0f)
         {
             FinishLevel();
         }
 
-        if (currentDiarrheaScore >= 100)
+        if (currentDiarrheaScore >= 100 || FindObjectOfType<Timer>().targetTime <= 0f)
         {
             FailLevel();
         }
@@ -92,11 +94,16 @@ public class GameManager : MonoBehaviour
         currentFartScore = 0;
         currentDiarrheaScore = 0;
         currentLevel++;
+        FindObjectOfType<Timer>().targetTime = 60f;
         spawner.startSpawning = false;
-        spawner.foodSpeed += 0.1f;
+        spawner.foodSpeed += 0.5f;
+        float tempTime = spawner.timeToGenerateFood - 0.2f;
+        spawner.timeToGenerateFood = Mathf.Max(tempTime, 0.2f);
         FindObjectOfType<GasMeter>().setGas(0);
         FindObjectOfType<DiarrheaMeter>().setDiarrhea(0);
         DestroyAllFood();
+        startLevelButton.SetActive(true);
+        levelCompleteText.SetActive(true);
     }
 
     public void FailLevel()
@@ -104,10 +111,14 @@ public class GameManager : MonoBehaviour
         currentFartScore = 0;
         currentDiarrheaScore = 0;
         currentLevel = 1;
+        FindObjectOfType<Timer>().targetTime = 60f;
         spawner.startSpawning = false;
         spawner.foodSpeed = 0.2f;
+        spawner.timeToGenerateFood = 2f;
         FindObjectOfType<GasMeter>().setGas(0);
         FindObjectOfType<DiarrheaMeter>().setDiarrhea(0);
         DestroyAllFood();
+        startLevelButton.SetActive(true);
+        levelFailedText.SetActive(true);
     }
 }

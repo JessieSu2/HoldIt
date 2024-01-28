@@ -23,15 +23,16 @@ public class Timer : MonoBehaviour
         text.text = targetTime.ToString("F2");
         if (targetTime <= 0.0f)
         {
-            timerEnded();
+            //timerEnded();
+            targetTime = 0f;
         }
         //print(targetTime);
     }
 
     void timerEnded()
     {
-//winScreen.SetActive(true);
-        Time.timeScale = 0f;
+        //winScreen.SetActive(true);
+        
     }
 
 }
