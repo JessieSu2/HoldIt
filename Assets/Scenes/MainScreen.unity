@@ -1378,16 +1378,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _musicSource: {fileID: 1784072858}
   _effectsSource: {fileID: 1784072857}
-  mainPageMusic: {fileID: 0}
-  gameBackgroundMusic: {fileID: 0}
-  storybookMusic: {fileID: 0}
-  ewwSound: {fileID: 0}
-  bulpSound: {fileID: 0}
-  fartSound: {fileID: 0}
+  mainPageMusic: {fileID: 8300000, guid: e4227969eaf4ab9458d480aee774d218, type: 3}
+  gameBackgroundMusic: {fileID: 8300000, guid: c601e80bfa2b029458a764668cc8d086, type: 3}
+  storybookMusic: {fileID: 8300000, guid: b8df5a8c5b8d78b448c3a17939c735c5, type: 3}
+  ewwSound: {fileID: 8300000, guid: fc7edda9d093caa48a1556d8a4326829, type: 3}
+  bulpSound: {fileID: 8300000, guid: e8c525756b1c81949ab2589c7c5a43b7, type: 3}
+  fartSound: {fileID: 8300000, guid: 8a8bc3cef8442ae4cbf370dab5d4ccf0, type: 3}
   poopSound: {fileID: 0}
-  clickSound: {fileID: 0}
-  levelCompleteSound: {fileID: 0}
-  failLevelSound: {fileID: 0}
+  clickSound: {fileID: 8300000, guid: 22332fddfe194e2488ec60dc54d92543, type: 3}
+  levelCompleteSound: {fileID: 8300000, guid: 94678fca90b3dc142a774cfc954c5529, type: 3}
+  failLevelSound: {fileID: 8300000, guid: 7d07900346890964986a0100b65d1219, type: 3}
 --- !u!4 &1784072860
 Transform:
   m_ObjectHideFlags: 0
