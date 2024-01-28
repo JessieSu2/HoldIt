@@ -12,6 +12,8 @@ public class StartLevelButton : MonoBehaviour
         GameManager.Instance.levelCompleteText.SetActive(false);
         GameManager.Instance.levelFailedText.SetActive(false);
         FindObjectOfType<PlayerMovement>().gameObject.GetComponent<Animator>().SetBool("fart", false);
+        GameManager.Instance.ppSplash.SetActive(false);
+        GameManager.Instance.ffSplash.SetActive(false);
 
     }
 }

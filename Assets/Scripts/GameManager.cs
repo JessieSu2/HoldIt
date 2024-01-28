@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI levelText;
     public GameObject levelCompleteText;
     public GameObject levelFailedText;
+    public GameObject ppSplash;
+    public GameObject ffSplash;
     public static GameManager Instance { get; private set; }
     #endregion
 
@@ -106,6 +108,7 @@ public class GameManager : MonoBehaviour
         startLevelButton.SetActive(true);
         levelCompleteText.SetActive(true);
         FindObjectOfType<PlayerMovement>().gameObject.GetComponent<Animator>().SetBool("fart", true);
+        ffSplash.SetActive(true);
 
     }
 
@@ -123,5 +126,7 @@ public class GameManager : MonoBehaviour
         DestroyAllFood();
         startLevelButton.SetActive(true);
         levelFailedText.SetActive(true);
+        FindObjectOfType<PlayerMovement>().gameObject.GetComponent<Animator>().SetBool("fart", true);
+        ppSplash.SetActive(true);
     }
 }
