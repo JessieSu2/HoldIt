@@ -22,6 +22,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] AudioClip clickSound;
     [SerializeField] AudioClip levelCompleteSound;
     [SerializeField] AudioClip failLevelSound;
+    [SerializeField] AudioClip tummyGrumbleSound;
 
     public enum Music
     {
@@ -38,7 +39,8 @@ public class SoundManager : MonoBehaviour
         PoopSound,
         ClickSound,
         LevelCompleteSound,
-        FailLevelSound
+        FailLevelSound,
+        TummyGrumbleSound
     }
 
     private void Awake()
@@ -129,6 +131,8 @@ public class SoundManager : MonoBehaviour
                 return failLevelSound;
             case SoundEffects.ClickSound:
                 return clickSound;
+            case SoundEffects.TummyGrumbleSound:
+                return tummyGrumbleSound;
             default:
                 return null;
         }

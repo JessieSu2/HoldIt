@@ -113,10 +113,12 @@ public class Food : MonoBehaviour
             collision.gameObject.GetComponent<Animator>().SetTrigger("eat");
             if (isFartFood)
             {
+                SoundManager.Instance.PlaySound(SoundManager.SoundEffects.BulpSound);
                 GameManager.Instance.AddFartPoints(fartPoints);
             }
             else
             {
+                SoundManager.Instance.PlaySound(SoundManager.SoundEffects.EwwSound);
                 GameManager.Instance.AddDiarrheaPoints(diarrheaPoints);
             }
         }

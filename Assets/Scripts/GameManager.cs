@@ -93,6 +93,8 @@ public class GameManager : MonoBehaviour
 
     public void FinishLevel()
     {
+        SoundManager.Instance.PlaySound(SoundManager.SoundEffects.LevelCompleteSound);
+        SoundManager.Instance.PlaySound(SoundManager.SoundEffects.FartSound);
         currentFartScore = 0;
         currentDiarrheaScore = 0;
         currentLevel++;
@@ -114,6 +116,8 @@ public class GameManager : MonoBehaviour
 
     public void FailLevel()
     {
+        SoundManager.Instance.PlaySound(SoundManager.SoundEffects.FailLevelSound);
+        SoundManager.Instance.PlaySound(SoundManager.SoundEffects.FartSound);
         currentFartScore = 0;
         currentDiarrheaScore = 0;
         currentLevel = 1;
